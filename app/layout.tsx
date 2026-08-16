@@ -14,22 +14,6 @@ const albertSans = Albert_Sans({
   display: "swap",
 });
 
-import type { Metadata } from "next";
-import { Unbounded, Albert_Sans } from "next/font/google";
-import "./globals.css";
-
-const unbounded = Unbounded({
-  subsets: ["latin"],
-  variable: "--font-unbounded",
-  display: "swap",
-});
-
-const albertSans = Albert_Sans({
-  subsets: ["latin"],
-  variable: "--font-albert-sans",
-  display: "swap",
-});
-
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
   (process.env.VERCEL_PROJECT_PRODUCTION_URL
@@ -41,6 +25,11 @@ export const metadata: Metadata = {
   title: "RepDaily — Push-Ups. Done Daily.",
   description:
     "AI-powered, camera-based push-up tracking tuned to your strength. No manual logs, just daily output.",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
   openGraph: {
     title: "RepDaily — Push-Ups. Done Daily.",
     description:
