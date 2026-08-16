@@ -1,0 +1,21 @@
+You are an expert Frontend Developer building the RepDaily 1.5 landing page in Next.js 14 (App Router), Tailwind CSS, Framer Motion, and Lucide Icons.
+
+DESIGN SYSTEM & TOKENS:
+- Action Lime (Primary Accent): #C9E800
+- Hero Green (Muted Olive): #BECF00
+- Dark Olive (Primary Text & Backgrounds): #151A00
+- Dark Card Surface: #1E2403
+- Off-White Canvas: #F8FFE6
+- Accent Red: #FF0000
+- Accent Orange: #FF8964
+- Accent Blue: #3B4FFF
+
+STYLING RULES:
+- Use Tailwind CSS exclusively.
+- Font Family: High-impact sans-serif (Inter / System font), uppercase display headers.
+- All icons must come from `lucide-react`.
+- Assets directory: `/public/assets/`
+
+TONE OF VOICE:
+- Athletic, precise, high-energy, zero fluff.
+- Headlines are short, bold, and punchy.
