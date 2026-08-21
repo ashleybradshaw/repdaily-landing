@@ -85,10 +85,42 @@ export default function VideoShowcase() {
                 </motion.div>
               </div>
             </div>
-            <div className="h-[200px] bg-[#1E2403]/10 border-2 border-dashed border-[#151A00]/20 rounded-[4px] flex items-center justify-center p-6">
-              <p className="text-xl font-bold tracking-widest text-red-500/80">
-                VIDEO PLACE HOLDER
-              </p>
+            <div className="h-[200px]">
+              <div className="relative w-full h-full overflow-hidden rounded-[4px] bg-[#151A00]">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-cover rounded-[4px]"
+                >
+                  <source
+                    src="/video/repdaily-video-actor-a-session-over-3.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+                <div className="absolute inset-0 bg-[#C9E800]/25 mix-blend-multiply pointer-events-none z-10 rounded-[4px]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#151A00]/85 via-[#151A00]/20 to-transparent z-20 pointer-events-none" />
+                <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  viewport={{ once: true }}
+                  className="absolute bottom-4 left-4 right-4 z-30 pointer-events-none"
+                >
+                  <span className="bg-[#C9E800] text-[#151A00] text-[9px] font-black px-2 py-0.5 rounded-[4px] uppercase tracking-wider inline-block mb-1.5">
+                    SPEED TEST
+                  </span>
+                  <h4 className="font-display text-base sm:text-lg font-black text-white tracking-tight leading-snug block">
+                    EXPLOSIVE 20
+                  </h4>
+                  <p className="font-sans text-xs font-semibold text-[#F8FFE6]/80 block mt-0.5">
+                    Beat the clock.
+                  </p>
+                </motion.div>
+              </div>
             </div>
           </div>
         </div>
