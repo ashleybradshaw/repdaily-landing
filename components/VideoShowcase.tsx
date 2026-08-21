@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export default function VideoShowcase() {
   return (
     <section className="w-full bg-[#F8FFE6] pb-24">
@@ -21,14 +25,65 @@ export default function VideoShowcase() {
                   Your browser does not support the video tag.
                 </video>
                 <div className="absolute inset-0 bg-[#C9E800]/25 mix-blend-multiply pointer-events-none z-10 rounded-[4px]" />
+                <div
+                  className="absolute inset-0 z-20 rounded-[4px] bg-gradient-to-t from-[#151A00]/85 to-transparent pointer-events-none"
+                  aria-hidden
+                />
+                <motion.div
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="absolute inset-x-0 bottom-0 z-30 p-6 sm:p-8"
+                >
+                  <span className="bg-[#C9E800] text-[#151A00] text-[10px] font-black px-2.5 py-0.5 rounded-[4px] uppercase tracking-wider inline-block mb-2">
+                    ULTRATASKS
+                  </span>
+                  <h3 className="font-display text-xl sm:text-2xl font-black text-white tracking-tight">
+                    Take on the PowerPush 10K.
+                  </h3>
+                  <p className="font-sans text-xs sm:text-sm font-semibold text-[#F8FFE6]/80 mt-1 max-w-[420px]">
+                    10,000 reps. Form depth calibration and automatic rep
+                    counting in full effect.
+                  </p>
+                </motion.div>
               </div>
             </div>
           </div>
           <div className="lg:col-span-5 flex flex-col gap-6">
-            <div className="h-[200px] bg-[#1E2403]/10 border-2 border-dashed border-[#151A00]/20 rounded-[4px] flex items-center justify-center p-6">
-              <p className="text-xl font-bold tracking-widest text-red-500/80">
-                VIDEO PLACE HOLDER
-              </p>
+            <div className="h-[200px]">
+              <div className="relative w-full h-full overflow-hidden rounded-[4px] bg-[#151A00]">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-cover rounded-[4px]"
+                >
+                  <source
+                    src="/video/repdaily-video-actor-a-session-over-2.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+                <div className="absolute inset-0 bg-[#C9E800]/25 mix-blend-multiply pointer-events-none z-10 rounded-[4px]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#151A00]/85 via-[#151A00]/20 to-transparent z-20 pointer-events-none" />
+                <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  viewport={{ once: true }}
+                  className="absolute bottom-4 left-4 right-4 z-30 pointer-events-none"
+                >
+                  <span className="bg-[#C9E800] text-[#151A00] text-[9px] font-black px-2 py-0.5 rounded-[4px] uppercase tracking-wider inline-block mb-1.5">
+                    FREEREP
+                  </span>
+                  <h4 className="font-display text-base sm:text-lg font-black text-white tracking-tight leading-snug">
+                    Sometimes you just want to keep going.
+                  </h4>
+                </motion.div>
+              </div>
             </div>
             <div className="h-[200px] bg-[#1E2403]/10 border-2 border-dashed border-[#151A00]/20 rounded-[4px] flex items-center justify-center p-6">
               <p className="text-xl font-bold tracking-widest text-red-500/80">
