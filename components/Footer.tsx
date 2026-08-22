@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const linkClassName = "hover:text-[#151A00] transition-colors";
+
 export default function Footer() {
   return (
     <footer className="w-full bg-[#F8FFE6] py-8 px-8 border-t border-[#151A00]/10">
@@ -19,20 +21,31 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
-          <a href="mailto:help@repdaily.com" className="hover:text-[#151A00]">
-            help@repdaily.com
+          <a href="mailto:tech@todo.engineering" className={linkClassName}>
+            tech@todo.engineering
           </a>
           <span aria-hidden>·</span>
-          <Link href="#data" className="hover:text-[#151A00]">
-            How we use your data
+          <Link href="/privacy" className={linkClassName}>
+            Privacy Policy
           </Link>
           <span aria-hidden>·</span>
-          <Link href="#privacy" className="hover:text-[#151A00]">
-            Privacy Policy
+          <Link href="/terms" className={linkClassName}>
+            Terms of Use
+          </Link>
+          <span aria-hidden>·</span>
+          <Link href="/support" className={linkClassName}>
+            Support & Account Deletion
           </Link>
         </div>
 
-        <p>A product by TODO: Engineering</p>
+        <a
+          href="https://todo.engineering"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${linkClassName} font-medium`}
+        >
+          A product by TODO: Engineering
+        </a>
       </div>
     </footer>
   );

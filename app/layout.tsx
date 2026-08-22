@@ -22,7 +22,10 @@ const siteUrl =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "RepDaily — Push-Ups. Done Daily.",
+  title: {
+    default: "RepDaily — Push-Ups. Done Daily.",
+    template: "%s — RepDaily",
+  },
   description:
     "AI-powered, camera-based push-up tracking tuned to your strength. No manual logs, just daily output.",
   icons: {
