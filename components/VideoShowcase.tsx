@@ -1,8 +1,41 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 export default function VideoShowcase() {
+  const video1Ref = useRef<HTMLVideoElement>(null);
+  const video2Ref = useRef<HTMLVideoElement>(null);
+  const video3Ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const videos = [video1Ref.current, video2Ref.current, video3Ref.current];
+
+    videos.forEach((video) => {
+      if (video) video.muted = true;
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            void video.play();
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
+
+    videos.forEach((video) => {
+      if (video) observer.observe(video);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="w-full bg-[#F8FFE6] pb-24">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12">
@@ -11,6 +44,7 @@ export default function VideoShowcase() {
             <div className="h-[420px]">
               <div className="relative w-full h-full overflow-hidden rounded-[4px] bg-[#151A00]">
                 <video
+                  ref={video1Ref}
                   autoPlay
                   loop
                   muted
@@ -54,6 +88,7 @@ export default function VideoShowcase() {
             <div className="h-[200px]">
               <div className="relative w-full h-full overflow-hidden rounded-[4px] bg-[#151A00]">
                 <video
+                  ref={video2Ref}
                   autoPlay
                   loop
                   muted
@@ -88,6 +123,7 @@ export default function VideoShowcase() {
             <div className="h-[200px]">
               <div className="relative w-full h-full overflow-hidden rounded-[4px] bg-[#151A00]">
                 <video
+                  ref={video3Ref}
                   autoPlay
                   loop
                   muted
