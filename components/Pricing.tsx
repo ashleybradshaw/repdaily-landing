@@ -99,7 +99,7 @@ export default function Pricing() {
             />
           </div>
           <h3 className="font-display text-lg font-black tracking-wide text-[#151A00]">
-            PAID MEMBER – £3.99 / month.
+            PAID MEMBER
           </h3>
           <p className="font-sans text-xs md:text-sm font-bold text-[#151A00] mt-1">
             Ready to step it up? (7 Day&apos;s Free)
