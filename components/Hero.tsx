@@ -1,6 +1,9 @@
 import Image from "next/image";
-import HeroStoreCTA from "@/components/HeroStoreCTA";
 import PhoneFrame from "@/components/PhoneFrame";
+
+const APP_STORE_URL = "https://apps.apple.com/gb/app/repdaily/id6760964655";
+const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=engineering.todo.repcam";
 
 export default function Hero() {
   return (
@@ -34,13 +37,8 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* Position 4: Primary CTA */}
-        <div className="mt-8 mb-12">
-          <HeroStoreCTA />
-        </div>
-
         {/* Copy Block Section */}
-        <div className="max-w-[780px] mx-auto space-y-4 text-[#151A00]">
+        <div className="max-w-[780px] mx-auto mt-8 space-y-4 text-[#151A00]">
           <p className="text-sm md:text-base font-black tracking-wider uppercase">
             SMARTER PUSH-UP TRAINING.
           </p>
@@ -54,9 +52,14 @@ export default function Hero() {
         </div>
 
         {/* App Store & Google Play SVG Badges */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <div
+          id="download"
+          className="mt-8 flex flex-wrap items-center justify-center gap-4"
+        >
           <a
-            href="#"
+            href={PLAY_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block hover:scale-105 transition-transform"
           >
             <Image
@@ -69,7 +72,9 @@ export default function Hero() {
           </a>
 
           <a
-            href="#"
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block hover:scale-105 transition-transform"
           >
             <Image

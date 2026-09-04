@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
@@ -8,18 +8,6 @@ import AnimatedCTA from "@/components/AnimatedCTA";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [deviceTarget, setDeviceTarget] = useState<string>("#plans");
-
-  useEffect(() => {
-    const userAgent = navigator.userAgent || navigator.vendor;
-    if (/iPad|iPhone|iPod/.test(userAgent)) {
-      setDeviceTarget("https://apps.apple.com");
-    } else if (/android/i.test(userAgent)) {
-      setDeviceTarget("https://play.google.com");
-    } else {
-      setDeviceTarget("#plans");
-    }
-  }, []);
 
   const navLinks = [
     { name: "HOW IT WORKS", href: "#how-it-works" },
@@ -65,7 +53,7 @@ export default function Navbar() {
 
         {/* Right Smart CTA Button */}
         <div className="hidden md:flex items-center">
-          <AnimatedCTA href={deviceTarget} text="Begin today" />
+          <AnimatedCTA href="#download" text="Begin today" />
         </div>
 
         {/* Mobile Hamburger Toggle */}
@@ -95,7 +83,7 @@ export default function Navbar() {
           ))}
           <div className="w-full flex items-center justify-center text-center mx-auto mt-6">
             <AnimatedCTA
-              href={deviceTarget}
+              href="#download"
               text="Begin today"
               onClick={() => setMobileMenuOpen(false)}
             />
