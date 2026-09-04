@@ -1,35 +1,8 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import AnimatedCTA from "@/components/AnimatedCTA";
+import HeroStoreCTA from "@/components/HeroStoreCTA";
 import PhoneFrame from "@/components/PhoneFrame";
 
 export default function Hero() {
-  const [deviceTarget, setDeviceTarget] = useState<string>("#plans");
-  const centerPhoneRef = useRef<HTMLDivElement>(null);
-  const phoneScrollerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const userAgent = navigator.userAgent || navigator.vendor;
-    if (/iPad|iPhone|iPod/.test(userAgent)) {
-      setDeviceTarget("https://apps.apple.com");
-    } else if (/android/i.test(userAgent)) {
-      setDeviceTarget("https://play.google.com");
-    } else {
-      setDeviceTarget("#plans");
-    }
-  }, []);
-
-  useEffect(() => {
-    const scroller = phoneScrollerRef.current;
-    const center = centerPhoneRef.current;
-    if (!scroller || !center) return;
-    if (window.matchMedia("(min-width: 768px)").matches) return;
-
-    const left = center.offsetLeft - (scroller.clientWidth - center.offsetWidth) / 2;
-    scroller.scrollTo({ left, behavior: "auto" });
-  }, []);
   return (
     <section className="relative w-full bg-[radial-gradient(ellipse_at_center,_#F8FFE6_0%,_#C9E800_70%,_#C9E800_100%)] pt-28 pb-20 px-6 overflow-x-clip overflow-y-visible">
       <div className="max-w-[1280px] mx-auto flex flex-col items-center text-center relative z-10">
@@ -63,7 +36,7 @@ export default function Hero() {
 
         {/* Position 4: Primary CTA */}
         <div className="mt-8 mb-12">
-          <AnimatedCTA href={deviceTarget} text="Begin today" />
+          <HeroStoreCTA />
         </div>
 
         {/* Copy Block Section */}
@@ -109,7 +82,7 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Phone Showcase */}
+        {/* Phone Showcase — CSS scroll-snap + justify-center (no layout reads) */}
         <div className="relative mx-auto mt-12 w-full max-w-[1000px]">
           {/* Mobile: single centered wave behind phones */}
           <div
@@ -151,25 +124,18 @@ export default function Hero() {
             />
           </div>
 
-          <div
-            ref={phoneScrollerRef}
-            className="relative z-10 -mx-6 flex w-[calc(100%+3rem)] items-center gap-4 overflow-x-auto overflow-y-visible snap-x snap-mandatory px-6 py-8 no-scrollbar md:mx-auto md:w-auto md:flex md:items-center md:justify-center md:gap-6 md:overflow-visible"
-          >
+          <div className="relative z-10 -mx-6 flex w-[calc(100%+3rem)] items-center justify-center gap-4 overflow-x-auto overflow-y-visible overscroll-x-contain snap-x snap-mandatory px-6 py-8 no-scrollbar md:mx-auto md:w-auto md:gap-6 md:overflow-visible">
             <div className="snap-center shrink-0 w-[240px] sm:w-[260px] md:w-auto drop-shadow-[0_20px_35px_rgba(21,26,0,0.35)]">
               <PhoneFrame
                 imageSrc="/assets/screens/screen-left.webp"
                 alt="Strength Test Screen"
-                priority
               />
             </div>
-            <div
-              ref={centerPhoneRef}
-              className="snap-center shrink-0 w-[240px] sm:w-[260px] md:w-auto drop-shadow-[0_20px_35px_rgba(21,26,0,0.35)]"
-            >
+            <div className="snap-center shrink-0 w-[240px] sm:w-[260px] md:w-auto drop-shadow-[0_20px_35px_rgba(21,26,0,0.35)]">
               <PhoneFrame
                 imageSrc="/assets/screens/screen-center.webp"
                 alt="Dashboard Screen"
-                priority
+                priority={true}
               />
             </div>
             <div className="snap-center shrink-0 w-[240px] sm:w-[260px] md:w-auto drop-shadow-[0_20px_35px_rgba(21,26,0,0.35)]">

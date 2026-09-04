@@ -1,14 +1,16 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import HowItWorks from "@/components/HowItWorks";
 import MediaShowcase from "@/components/MediaShowcase";
-import Features from "@/components/Features";
-import VideoShowcase from "@/components/VideoShowcase";
-import UltraTasksSection from "@/components/UltraTasksSection";
 import Pricing from "@/components/Pricing";
-import Roadmap from "@/components/Roadmap";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
+import {
+  FeaturesLazy,
+  HowItWorksLazy,
+  RoadmapLazy,
+  UltraTasksSectionLazy,
+  VideoShowcaseLazy,
+} from "@/components/LazyBelowFold";
 
 export default function Home() {
   return (
@@ -18,16 +20,16 @@ export default function Home() {
       
       {/* Lime Top Canvas */}
       <Hero />
-      <HowItWorks />
+      <HowItWorksLazy />
       <MediaShowcase />
 
       {/* Off-White Bottom Canvas */}
       <div className="bg-[#F8FFE6]">
-        <Features />
-        <VideoShowcase />
-        <UltraTasksSection />
+        <FeaturesLazy />
+        <VideoShowcaseLazy />
+        <UltraTasksSectionLazy />
         <Pricing />
-        <Roadmap />
+        <RoadmapLazy />
         <FAQ />
         <Footer />
       </div>
