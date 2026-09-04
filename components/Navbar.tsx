@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,10 +8,40 @@ import { Menu, X } from "lucide-react";
 import AnimatedCTA from "@/components/AnimatedCTA";
 import { content } from "@/config/content";
 
+function scrollToSelector(selector: string) {
+  window.setTimeout(() => {
+    document.querySelector(selector)?.scrollIntoView({ behavior: "smooth" });
+  }, 50);
+}
+
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const { navbar } = content;
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMobileMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [mobileMenuOpen]);
+
+  const closeMobileMenu = () => setMobileMenuOpen(false);
+
+  const closeThenScroll = (hash: string) => {
+    closeMobileMenu();
+    scrollToSelector(hash);
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full bg-[#C9E800]/85 backdrop-blur-md border-b border-[#151A00]/10 transition-all">
@@ -63,38 +93,98 @@ export default function Navbar() {
 
         {/* Mobile Hamburger Toggle */}
         <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          type="button"
+          onClick={() => setMobileMenuOpen(true)}
           className="md:hidden text-[#151A00] p-2 focus:outline-none"
           aria-label={navbar.menuToggle}
+          aria-expanded={mobileMenuOpen}
         >
-          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          <Menu size={28} />
         </button>
       </div>
 
-      {/* Mobile Menu Dropdown */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-[#C9E800] border-b border-[#151A00]/10 px-6 py-6 flex flex-col gap-5 shadow-xl">
-          {navbar.links.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              target={"external" in link ? "_blank" : undefined}
-              rel={"external" in link ? "noopener noreferrer" : undefined}
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-sm font-extrabold tracking-widest text-[#151A00] py-1 border-b border-[#151A00]/5"
-            >
-              {link.name}
-            </Link>
-          ))}
-          <div className="w-full flex items-center justify-center text-center mx-auto mt-6">
-            <AnimatedCTA
-              href={navbar.ctaHref}
-              text={navbar.cta}
-              onClick={() => setMobileMenuOpen(false)}
-            />
+      {mobileMenuOpen ? (
+        <div
+          className="fixed inset-0 z-50 h-screen w-screen bg-[#C9E800] md:hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
+        >
+          <div className="flex h-full min-h-screen flex-col justify-between p-6 sm:p-8">
+            <div className="flex items-center justify-between">
+              <Link
+                href="/"
+                aria-label={navbar.logoAlt}
+                className="flex items-center gap-2 group"
+                onClick={(event) => {
+                  closeMobileMenu();
+                  if (pathname === "/") {
+                    event.preventDefault();
+                    window.setTimeout(() => {
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }, 50);
+                  }
+                }}
+              >
+                <div className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-[4px]">
+                  <Image
+                    src="/assets/logo-icon-repdaily.svg"
+                    alt={navbar.logoAlt}
+                    width={40}
+                    height={40}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+              </Link>
+              <button
+                type="button"
+                onClick={closeMobileMenu}
+                className="text-[#151A00] p-2 focus:outline-none"
+                aria-label="Close menu"
+              >
+                <X size={28} />
+              </button>
+            </div>
+
+            <nav className="flex flex-col items-center gap-6">
+              {navbar.links.map((link) => {
+                const isExternal = "external" in link;
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
+                    onClick={(event) => {
+                      if (isExternal) {
+                        closeMobileMenu();
+                        return;
+                      }
+                      if (link.href.startsWith("#")) {
+                        event.preventDefault();
+                        closeThenScroll(link.href);
+                      } else {
+                        closeMobileMenu();
+                      }
+                    }}
+                    className="text-xl font-extrabold tracking-widest text-[#151A00] hover:opacity-70 transition-opacity"
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+            </nav>
+
+            <div className="flex w-full items-center justify-center pb-4">
+              <AnimatedCTA
+                href="#download"
+                text={navbar.cta}
+                onClick={() => closeThenScroll("#download")}
+              />
+            </div>
           </div>
         </div>
-      )}
+      ) : null}
     </header>
   );
 }

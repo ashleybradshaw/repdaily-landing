@@ -36,11 +36,17 @@ export default function AnimatedCTA({
       <Link
         href={href}
         onClick={(event) => {
-          if (href === "/" && pathname === "/") {
+          const isHash = href.startsWith("#");
+          const isHomeTop = href === "/" && pathname === "/";
+          if (isHash || isHomeTop) {
             event.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
           }
           onClick?.();
+          if (isHomeTop) {
+            window.setTimeout(() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }, 50);
+          }
         }}
         target={isExternal ? "_blank" : undefined}
         rel={isExternal ? "noopener noreferrer" : undefined}
