@@ -132,17 +132,28 @@ export default function Hero() {
 
           <div className="relative z-10 -mx-6 flex w-[calc(100%+3rem)] items-center justify-center gap-4 overflow-x-auto overflow-y-visible overscroll-x-contain snap-x snap-mandatory px-6 py-8 no-scrollbar md:mx-auto md:w-auto md:gap-6 md:overflow-visible">
             <div className="snap-center shrink-0 w-[240px] sm:w-[260px] md:w-auto drop-shadow-[0_20px_35px_rgba(21,26,0,0.35)]">
-              <PhoneFrame imageSrc={leftPhone.src} alt={leftPhone.alt} />
+              <PhoneFrame
+                imageSrc={leftPhone.src}
+                alt={leftPhone.alt}
+                priority={true}
+                loading="eager"
+              />
             </div>
             <div className="snap-center shrink-0 w-[240px] sm:w-[260px] md:w-auto drop-shadow-[0_20px_35px_rgba(21,26,0,0.35)]">
               <PhoneFrame
                 imageSrc={centerPhone.src}
                 alt={centerPhone.alt}
                 priority={true}
+                loading="eager"
               />
             </div>
             <div className="snap-center shrink-0 w-[240px] sm:w-[260px] md:w-auto drop-shadow-[0_20px_35px_rgba(21,26,0,0.35)]">
-              <PhoneFrame imageSrc={rightPhone.src} alt={rightPhone.alt} />
+              <PhoneFrame
+                imageSrc={rightPhone.src}
+                alt={rightPhone.alt}
+                priority={true}
+                loading="eager"
+              />
             </div>
           </div>
         </div>
