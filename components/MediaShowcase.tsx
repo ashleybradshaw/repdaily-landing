@@ -1,12 +1,12 @@
 import Image from "next/image";
 
 const GRID_PHOTOS = [
-  { src: "/assets/grid-photos/photo-1.png", alt: "Athlete training on the floor" },
-  { src: "/assets/grid-photos/photo-2.png", alt: "Push-up session in progress" },
-  { src: "/assets/grid-photos/photo-3.png", alt: "RepDaily training environment" },
-  { src: "/assets/grid-photos/photo-4.png", alt: "Focused push-up form" },
-  { src: "/assets/grid-photos/photo-5.png", alt: "Daily training moment" },
-  { src: "/assets/grid-photos/photo-6.png", alt: "Athletes showing up to train" },
+  { src: "/assets/grid-photos/photo-1.webp", alt: "Athlete training on the floor" },
+  { src: "/assets/grid-photos/photo-2.webp", alt: "Push-up session in progress" },
+  { src: "/assets/grid-photos/photo-3.webp", alt: "RepDaily training environment" },
+  { src: "/assets/grid-photos/photo-4.webp", alt: "Focused push-up form" },
+  { src: "/assets/grid-photos/photo-5.webp", alt: "Daily training moment" },
+  { src: "/assets/grid-photos/photo-6.webp", alt: "Athletes showing up to train" },
 ] as const;
 
 export default function MediaShowcase() {

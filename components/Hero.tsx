@@ -157,7 +157,7 @@ export default function Hero() {
           >
             <div className="snap-center shrink-0 w-[240px] sm:w-[260px] md:w-auto drop-shadow-[0_20px_35px_rgba(21,26,0,0.35)]">
               <PhoneFrame
-                imageSrc="/assets/screens/screen-left.png"
+                imageSrc="/assets/screens/screen-left.webp"
                 alt="Strength Test Screen"
                 priority
               />
@@ -167,14 +167,14 @@ export default function Hero() {
               className="snap-center shrink-0 w-[240px] sm:w-[260px] md:w-auto drop-shadow-[0_20px_35px_rgba(21,26,0,0.35)]"
             >
               <PhoneFrame
-                imageSrc="/assets/screens/screen-center.png"
+                imageSrc="/assets/screens/screen-center.webp"
                 alt="Dashboard Screen"
                 priority
               />
             </div>
             <div className="snap-center shrink-0 w-[240px] sm:w-[260px] md:w-auto drop-shadow-[0_20px_35px_rgba(21,26,0,0.35)]">
               <PhoneFrame
-                imageSrc="/assets/screens/screen-right.png"
+                imageSrc="/assets/screens/screen-right.webp"
                 alt="PushPass 24 Screen"
               />
             </div>
