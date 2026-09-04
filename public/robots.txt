@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Explicit AI Bot Access
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+Sitemap: https://repdaily.app/sitemap.xml

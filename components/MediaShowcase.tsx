@@ -32,7 +32,7 @@ export default function MediaShowcase() {
 
         <div className="rounded-[4px] overflow-hidden relative max-w-[1280px] mx-auto mt-6 min-h-[22rem] sm:min-h-[28rem]">
           <Image
-            src="/assets/banner-showup.png"
+            src="/assets/banner-showup.webp"
             alt=""
             fill
             sizes="1280px"

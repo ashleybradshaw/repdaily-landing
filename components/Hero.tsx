@@ -68,9 +68,9 @@ export default function Hero() {
 
         {/* Copy Block Section */}
         <div className="max-w-[780px] mx-auto space-y-4 text-[#151A00]">
-          <h3 className="text-sm md:text-base font-black tracking-wider uppercase">
+          <p className="text-sm md:text-base font-black tracking-wider uppercase">
             SMARTER PUSH-UP TRAINING.
-          </h3>
+          </p>
           <p className="text-sm md:text-base font-medium leading-relaxed text-[#151A00]/80">
             Set your phone down, hit the deck, and let computer vision track every clean rep.
             No manual logs, no broken counters, just pure daily output tuned to your strength.
@@ -159,6 +159,7 @@ export default function Hero() {
               <PhoneFrame
                 imageSrc="/assets/screens/screen-left.png"
                 alt="Strength Test Screen"
+                priority
               />
             </div>
             <div

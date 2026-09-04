@@ -73,9 +73,9 @@ export default function VideoShowcase() {
                   <span className="bg-[#C9E800] text-[#151A00] text-[10px] font-black px-2.5 py-0.5 rounded-[4px] uppercase tracking-wider inline-block mb-2">
                     ULTRATASKS
                   </span>
-                  <h3 className="font-display text-xl sm:text-2xl font-black text-white tracking-tight">
+                  <h2 className="font-display text-xl sm:text-2xl font-black text-white tracking-tight">
                     Take on the PowerPush 10K.
-                  </h3>
+                  </h2>
                   <p className="font-sans text-xs sm:text-sm font-semibold text-[#F8FFE6]/80 mt-1 max-w-[420px]">
                     10,000 reps. Form depth calibration and automatic rep
                     counting in full effect.
@@ -114,9 +114,9 @@ export default function VideoShowcase() {
                   <span className="bg-[#C9E800] text-[#151A00] text-[9px] font-black px-2 py-0.5 rounded-[4px] uppercase tracking-wider inline-block mb-1.5">
                     FREEREP
                   </span>
-                  <h4 className="font-display text-base sm:text-lg font-black text-white tracking-tight leading-snug">
+                  <h3 className="font-display text-base sm:text-lg font-black text-white tracking-tight leading-snug">
                     Sometimes you just want to keep going.
-                  </h4>
+                  </h3>
                 </motion.div>
               </div>
             </div>
@@ -149,9 +149,9 @@ export default function VideoShowcase() {
                   <span className="bg-[#C9E800] text-[#151A00] text-[9px] font-black px-2 py-0.5 rounded-[4px] uppercase tracking-wider inline-block mb-1.5">
                     SPEED TEST
                   </span>
-                  <h4 className="font-display text-base sm:text-lg font-black text-white tracking-tight leading-snug block">
+                  <h3 className="font-display text-base sm:text-lg font-black text-white tracking-tight leading-snug block">
                     EXPLOSIVE 20
-                  </h4>
+                  </h3>
                   <p className="font-sans text-xs font-semibold text-[#F8FFE6]/80 block mt-0.5">
                     Beat the clock.
                   </p>
