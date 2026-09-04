@@ -4,6 +4,7 @@ type PhoneFrameProps = {
   imageSrc: string;
   alt: string;
   priority?: boolean;
+  preload?: boolean;
   loading?: "eager" | "lazy";
   fetchPriority?: "high" | "low" | "auto";
 };
@@ -12,6 +13,7 @@ export default function PhoneFrame({
   imageSrc,
   alt,
   priority = false,
+  preload,
   loading,
   fetchPriority,
 }: PhoneFrameProps) {
@@ -22,8 +24,9 @@ export default function PhoneFrame({
           src={imageSrc}
           alt={alt}
           fill
-          sizes="(max-width: 640px) 240px, (max-width: 768px) 260px, 280px"
+          sizes="(max-width: 767px) 240px, 280px"
           className="object-cover"
+          preload={preload ?? priority}
           priority={priority}
           loading={loading}
           fetchPriority={fetchPriority}

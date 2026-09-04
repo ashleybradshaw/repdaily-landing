@@ -139,6 +139,7 @@ export default function Hero() {
                 imageSrc={centerPhone.src}
                 alt={centerPhone.alt}
                 priority={true}
+                preload
                 loading="eager"
                 fetchPriority="high"
               />

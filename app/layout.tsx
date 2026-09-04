@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Unbounded, Albert_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { preload } from "react-dom";
 import { content } from "@/config/content";
+import DeferredMeTalk from "@/components/DeferredMeTalk";
 import "./globals.css";
 
 const unbounded = Unbounded({
@@ -54,10 +56,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  preload(
+    "/_next/image?url=%2Fassets%2Fscreens%2Fscreen-center.webp&w=480&q=75",
+    {
+      as: "image",
+      fetchPriority: "high",
+    },
+  );
+
   return (
     <html lang="en" className={`${unbounded.variable} ${albertSans.variable}`}>
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/_next/image?url=%2Fassets%2Fscreens%2Fscreen-center.webp&w=480&q=75"
+          fetchPriority="high"
+        />
+      </head>
       <body className="font-sans antialiased text-[#151A00] bg-[#C9E800]">
         {children}
+        <DeferredMeTalk />
         <Analytics />
       </body>
     </html>
