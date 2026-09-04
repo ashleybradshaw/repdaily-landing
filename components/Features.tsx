@@ -10,57 +10,31 @@ import {
   useAnimatedIcon,
   type AnimatedIcon,
 } from "@/components/icons/AnimateIcons";
+import { content } from "@/config/content";
 
-const FEATURES: {
-  icon: AnimatedIcon;
-  title: string;
-  subhead: string;
-  body: string;
-}[] = [
-  {
-    icon: SmartphoneIcon,
-    title: "Automatic Rep Counting",
-    subhead: "Never lose count again.",
-    body: "On-device computer vision tracks your movement depth and validates clean reps automatically so you can focus on form and effort.",
-  },
-  {
-    icon: SlidersHorizontalIcon,
-    title: "FreeRep Training (Free & Pro)",
-    subhead: "Train anytime, your way.",
-    body: "Unstructured open sessions for quick daily volume. Drop down, push until you stop, and bank every rep into your lifetime total.",
-  },
-  {
-    icon: AudioLinesIcon,
-    title: "PushPass 24 Progression (Pro)",
-    subhead: "Automated stage workouts.",
-    body: "24 adaptive training stages designed to scale your output. Hitting target sets unlocks Rep Points (RP) to rank up automatically.",
-  },
-  {
-    icon: ChartNoAxesCombinedIcon,
-    title: "Streaks & Consistency",
-    subhead: "Build habits that stick.",
-    body: "Interactive weekly calendar strips track active days, rest days, and momentum. Focus on showing up every single day.",
-  },
-  {
-    icon: BookmarkCheckIcon,
-    title: "PowerPath 10K & Achievements",
-    subhead: "Every single rep counts.",
-    body: "All reps across every mode feed into your 10,000-rep lifetime milestone, unlocking 17 custom achievement badges as you progress.",
-  },
-  {
-    icon: ZapIcon,
-    title: "UltraTasks Arena (Pro)",
-    subhead: "High-stakes time & volume tests.",
-    body: "Test your peak output in Explosive 20 (sub-45s speed attack) or Max Load (60-second rep assault) to collect challenge medals.",
-  },
-];
+const FEATURE_ICONS: Record<
+  (typeof content.features.items)[number]["icon"],
+  AnimatedIcon
+> = {
+  smartphone: SmartphoneIcon,
+  sliders: SlidersHorizontalIcon,
+  audio: AudioLinesIcon,
+  chart: ChartNoAxesCombinedIcon,
+  bookmark: BookmarkCheckIcon,
+  zap: ZapIcon,
+};
 
 function FeatureCard({
   icon: Icon,
   title,
   subhead,
   body,
-}: (typeof FEATURES)[number]) {
+}: {
+  icon: AnimatedIcon;
+  title: string;
+  subhead: string;
+  body: string;
+}) {
   const { ref, onMouseEnter, onMouseLeave } = useAnimatedIcon();
 
   return (
@@ -85,21 +59,29 @@ function FeatureCard({
 }
 
 export default function Features() {
+  const { features } = content;
+
   return (
     <section id="features" className="w-full bg-[#F8FFE6] py-24">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12">
         <div className="flex flex-col items-center text-center">
           <h2 className="font-display text-4xl md:text-5xl font-black text-[#151A00] text-center">
-            Features that keep you moving.
+            {features.title}
           </h2>
           <p className="font-sans text-sm md:text-base font-extrabold text-[#151A00]/70 text-center mt-2">
-            Built for consistency, not guesswork.
+            {features.subtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1280px] mx-auto mt-12">
-          {FEATURES.map((feature) => (
-            <FeatureCard key={feature.title} {...feature} />
+          {features.items.map((feature) => (
+            <FeatureCard
+              key={feature.title}
+              icon={FEATURE_ICONS[feature.icon]}
+              title={feature.title}
+              subhead={feature.subhead}
+              body={feature.body}
+            />
           ))}
         </div>
       </div>

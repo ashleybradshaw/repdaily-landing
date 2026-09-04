@@ -4,64 +4,49 @@ import { useEffect, useRef } from "react";
 import confetti from "canvas-confetti";
 import { useInView } from "framer-motion";
 import { Layers, Rocket, Trophy, Users, type LucideIcon } from "lucide-react";
+import { content } from "@/config/content";
 
 let hasCelebratedThisSession = false;
 
-const NODES: {
-  icon: LucideIcon;
-  iconClass: string;
-  status: string;
-  pill?: "LIVE" | "READY";
-  title: string;
-  body: string;
-  ruleClass: string;
-  future?: boolean;
-}[] = [
-  {
-    icon: Rocket,
+const NODE_ICONS: Record<
+  (typeof content.roadmap.nodes)[number]["icon"],
+  LucideIcon
+> = {
+  rocket: Rocket,
+  layers: Layers,
+  users: Users,
+  trophy: Trophy,
+};
+
+const NODE_STYLES: Record<
+  (typeof content.roadmap.nodes)[number]["icon"],
+  { iconClass: string; ruleClass: string }
+> = {
+  rocket: {
     iconClass:
       "mb-4 flex h-12 w-12 items-center justify-center rounded-[4px] bg-[#FF8964] text-white shadow-sm",
-    status: "2026",
-    pill: "LIVE",
-    title: "Public Beta Release",
-    body: "FreeRep camera auto-counting, PowerPath 10K, and core streak tracking.",
     ruleClass:
       "font-sans text-xs md:text-sm font-medium text-[#151A00]/80 leading-relaxed mt-2 pb-4 border-b-2 border-[#151A00]/20",
   },
-  {
-    icon: Layers,
+  layers: {
     iconClass:
       "mb-4 flex h-12 w-12 items-center justify-center rounded-[4px] bg-[#86A000] text-white shadow-sm",
-    status: "Early Beta",
-    pill: "READY",
-    title: "PushPass 24 & UltraTasks",
-    body: "Structured stage progression and time-attack speed challenges unlocked for Pro members.",
     ruleClass:
       "font-sans text-xs md:text-sm font-medium text-[#151A00]/80 leading-relaxed mt-2 pb-4 border-b-2 border-[#86A000]",
   },
-  {
-    icon: Users,
+  users: {
     iconClass:
       "mb-4 flex h-12 w-12 items-center justify-center rounded-[4px] bg-[#151A00]/20 text-[#151A00] shadow-sm",
-    status: "2026 (Late)",
-    title: "Social Challenges & Friends",
-    body: "Train alongside friends, share workout summaries, and challenge custom rep targets.",
     ruleClass:
       "font-sans text-xs md:text-sm font-medium text-[#151A00]/80 leading-relaxed mt-2 pb-4 border-b-2 border-[#3B4FFF]",
-    future: true,
   },
-  {
-    icon: Trophy,
+  trophy: {
     iconClass:
       "mb-4 flex h-12 w-12 items-center justify-center rounded-[4px] bg-[#151A00]/20 text-[#151A00] shadow-sm",
-    status: "2026 (Late)",
-    title: "Leaderboards & Deep Analytics",
-    body: "Global/local rankings, rep velocity trendlines, and advanced computer vision feedback.",
     ruleClass:
       "font-sans text-xs md:text-sm font-medium text-[#151A00]/80 leading-relaxed mt-2 pb-4 border-b-2 border-[#151A00]/20",
-    future: true,
   },
-];
+};
 
 function StatusPill({ label }: { label: "LIVE" | "READY" }) {
   return (
@@ -74,6 +59,7 @@ function StatusPill({ label }: { label: "LIVE" | "READY" }) {
 export default function Roadmap() {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.35 });
+  const { roadmap } = content;
 
   useEffect(() => {
     if (!isInView || hasCelebratedThisSession) return;
@@ -96,38 +82,41 @@ export default function Roadmap() {
     >
       <div className="flex flex-col items-center px-6 text-center">
         <h2 className="font-display text-4xl md:text-5xl font-black text-[#151A00] text-center">
-          Come with us.
+          {roadmap.title}
         </h2>
         <p className="font-sans text-sm md:text-base font-extrabold text-[#151A00]/70 text-center mt-2">
-          Here&apos;s what we&apos;re building next.
+          {roadmap.subtitle}
         </p>
       </div>
 
       <div className="mx-auto mt-16 grid max-w-[1280px] grid-cols-1 gap-8 px-6 md:grid-cols-2 lg:grid-cols-4">
-        {NODES.map((node) => {
-          const Icon = node.icon;
+        {roadmap.nodes.map((node) => {
+          const Icon = NODE_ICONS[node.icon];
+          const styles = NODE_STYLES[node.icon];
           return (
             <article
               key={node.title}
               className={
-                node.future
+                "future" in node && node.future
                   ? "opacity-40 transition-opacity hover:opacity-70"
                   : undefined
               }
             >
-              <div className={node.iconClass}>
+              <div className={styles.iconClass}>
                 <Icon size={22} strokeWidth={2.25} aria-hidden />
               </div>
               <div className="flex flex-wrap items-center gap-2">
                 <p className="font-sans text-sm font-extrabold text-[#151A00]">
                   {node.status}
                 </p>
-                {node.pill ? <StatusPill label={node.pill} /> : null}
+                {"pill" in node && node.pill ? (
+                  <StatusPill label={node.pill} />
+                ) : null}
               </div>
               <h3 className="font-display text-lg font-black text-[#151A00] mt-1">
                 {node.title}
               </h3>
-              <p className={node.ruleClass}>{node.body}</p>
+              <p className={styles.ruleClass}>{node.body}</p>
             </article>
           );
         })}

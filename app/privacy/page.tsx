@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import SubPageLayout from "@/components/SubPageLayout";
+import { content } from "@/config/content";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description:
-    "How RepDaily collects, uses, and protects your data. Camera tracking stays on-device. Video is never stored or uploaded.",
+  title: content.meta.pages.privacy.title,
+  description: content.meta.pages.privacy.description,
 };
 
 export default function PrivacyPage() {

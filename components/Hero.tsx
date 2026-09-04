@@ -1,11 +1,11 @@
 import Image from "next/image";
 import PhoneFrame from "@/components/PhoneFrame";
-
-const APP_STORE_URL = "https://apps.apple.com/gb/app/repdaily/id6760964655";
-const PLAY_STORE_URL =
-  "https://play.google.com/store/apps/details?id=engineering.todo.repcam";
+import { content } from "@/config/content";
 
 export default function Hero() {
+  const { hero } = content;
+  const [leftPhone, centerPhone, rightPhone] = hero.phones;
+
   return (
     <section className="relative w-full bg-[radial-gradient(ellipse_at_center,_#F8FFE6_0%,_#C9E800_70%,_#C9E800_100%)] pt-28 pb-20 px-6 overflow-x-clip overflow-y-visible">
       <div className="max-w-[1280px] mx-auto flex flex-col items-center text-center relative z-10">
@@ -14,7 +14,7 @@ export default function Hero() {
         <div className="flex w-full items-center justify-center">
           <Image
             src="/assets/logo-repdaily.svg"
-            alt="RepDaily Wordmark Logo"
+            alt={hero.logoAlt}
             width={480}
             height={60}
             className="h-8 sm:h-10 md:h-12 w-auto max-w-[90%] object-contain"
@@ -24,31 +24,32 @@ export default function Hero() {
 
         {/* Position 2: Main Headline */}
         <h1 className="font-display text-4xl sm:text-6xl md:text-[72px] font-black tracking-tight text-[#151A00] leading-[1.05] sm:leading-none whitespace-normal sm:whitespace-nowrap text-center mt-4 mb-6">
-          Push-Ups. Done Daily.
+          {hero.headline}
         </h1>
 
         {/* Position 3: Pill Badge */}
         <div className="inline-flex items-center gap-2 rounded-full border border-[#151A00]/20 bg-[#151A00] p-1.5 pr-5 text-[#C9E800] shadow-lg">
           <span className="rounded-full bg-[#C9E800] px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-[#151A00]">
-            NEW
+            {hero.pillLabel}
           </span>
           <span className="text-xs font-bold tracking-wide text-white">
-            Meet RepDaily 1.5 • PUBLIC BETA
+            {hero.pillText}
           </span>
         </div>
 
         {/* Copy Block Section */}
         <div className="max-w-[780px] mx-auto mt-8 space-y-4 text-[#151A00]">
           <p className="text-sm md:text-base font-black tracking-wider uppercase">
-            SMARTER PUSH-UP TRAINING.
+            {hero.kicker}
           </p>
-          <p className="text-sm md:text-base font-medium leading-relaxed text-[#151A00]/80">
-            Set your phone down, hit the deck, and let computer vision track every clean rep.
-            No manual logs, no broken counters, just pure daily output tuned to your strength.
-          </p>
-          <p className="text-sm md:text-base font-medium leading-relaxed text-[#151A00]/80">
-            Whether you&apos;re dropping in for a quick 10-rep streak or taking on structured PushPass 24 stages, RepDaily keeps you consistent without the friction.
-          </p>
+          {hero.body.map((paragraph) => (
+            <p
+              key={paragraph}
+              className="text-sm md:text-base font-medium leading-relaxed text-[#151A00]/80"
+            >
+              {paragraph}
+            </p>
+          ))}
         </div>
 
         {/* App Store & Google Play SVG Badges */}
@@ -57,14 +58,14 @@ export default function Hero() {
           className="mt-8 flex flex-wrap items-center justify-center gap-4"
         >
           <a
-            href={PLAY_STORE_URL}
+            href={hero.playStore.href}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block hover:scale-105 transition-transform"
           >
             <Image
               src="/assets/google-store-logo.svg"
-              alt="Get it on Google Play"
+              alt={hero.playStore.alt}
               width={160}
               height={48}
               className="h-12 w-auto"
@@ -72,14 +73,14 @@ export default function Hero() {
           </a>
 
           <a
-            href={APP_STORE_URL}
+            href={hero.appStore.href}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block hover:scale-105 transition-transform"
           >
             <Image
               src="/assets/apple-store-logo.svg"
-              alt="Download on the App Store"
+              alt={hero.appStore.alt}
               width={160}
               height={48}
               className="h-12 w-auto"
@@ -131,23 +132,17 @@ export default function Hero() {
 
           <div className="relative z-10 -mx-6 flex w-[calc(100%+3rem)] items-center justify-center gap-4 overflow-x-auto overflow-y-visible overscroll-x-contain snap-x snap-mandatory px-6 py-8 no-scrollbar md:mx-auto md:w-auto md:gap-6 md:overflow-visible">
             <div className="snap-center shrink-0 w-[240px] sm:w-[260px] md:w-auto drop-shadow-[0_20px_35px_rgba(21,26,0,0.35)]">
-              <PhoneFrame
-                imageSrc="/assets/screens/screen-left.webp"
-                alt="Strength Test Screen"
-              />
+              <PhoneFrame imageSrc={leftPhone.src} alt={leftPhone.alt} />
             </div>
             <div className="snap-center shrink-0 w-[240px] sm:w-[260px] md:w-auto drop-shadow-[0_20px_35px_rgba(21,26,0,0.35)]">
               <PhoneFrame
-                imageSrc="/assets/screens/screen-center.webp"
-                alt="Dashboard Screen"
+                imageSrc={centerPhone.src}
+                alt={centerPhone.alt}
                 priority={true}
               />
             </div>
             <div className="snap-center shrink-0 w-[240px] sm:w-[260px] md:w-auto drop-shadow-[0_20px_35px_rgba(21,26,0,0.35)]">
-              <PhoneFrame
-                imageSrc="/assets/screens/screen-right.webp"
-                alt="PushPass 24 Screen"
-              />
+              <PhoneFrame imageSrc={rightPhone.src} alt={rightPhone.alt} />
             </div>
           </div>
         </div>

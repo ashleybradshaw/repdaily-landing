@@ -2,11 +2,13 @@
 
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { content } from "@/config/content";
 
 export default function VideoShowcase() {
   const video1Ref = useRef<HTMLVideoElement>(null);
   const video2Ref = useRef<HTMLVideoElement>(null);
   const video3Ref = useRef<HTMLVideoElement>(null);
+  const [primary, freeRep, speed] = content.videoShowcase.cards;
 
   useEffect(() => {
     const videos = [video1Ref.current, video2Ref.current, video3Ref.current];
@@ -56,7 +58,7 @@ export default function VideoShowcase() {
                     src="/video/repdaily-video-actor-a-session-over-1.mp4"
                     type="video/mp4"
                   />
-                  Your browser does not support the video tag.
+                  {content.videoShowcase.unsupported}
                 </video>
                 <div className="absolute inset-0 bg-[#C9E800]/25 mix-blend-multiply pointer-events-none z-10 rounded-[4px]" />
                 <div
@@ -71,14 +73,13 @@ export default function VideoShowcase() {
                   className="absolute inset-x-0 bottom-0 z-30 p-6 sm:p-8"
                 >
                   <span className="bg-[#C9E800] text-[#151A00] text-[10px] font-black px-2.5 py-0.5 rounded-[4px] uppercase tracking-wider inline-block mb-2">
-                    ULTRATASKS
+                    {primary.badge}
                   </span>
                   <h2 className="font-display text-xl sm:text-2xl font-black text-white tracking-tight">
-                    Take on the PowerPush 10K.
+                    {primary.title}
                   </h2>
                   <p className="font-sans text-xs sm:text-sm font-semibold text-[#F8FFE6]/80 mt-1 max-w-[420px]">
-                    10,000 reps. Form depth calibration and automatic rep
-                    counting in full effect.
+                    {primary.body}
                   </p>
                 </motion.div>
               </div>
@@ -100,7 +101,7 @@ export default function VideoShowcase() {
                     src="/video/repdaily-video-actor-a-session-over-2.mp4"
                     type="video/mp4"
                   />
-                  Your browser does not support the video tag.
+                  {content.videoShowcase.unsupported}
                 </video>
                 <div className="absolute inset-0 bg-[#C9E800]/25 mix-blend-multiply pointer-events-none z-10 rounded-[4px]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#151A00]/85 via-[#151A00]/20 to-transparent z-20 pointer-events-none" />
@@ -112,10 +113,10 @@ export default function VideoShowcase() {
                   className="absolute bottom-4 left-4 right-4 z-30 pointer-events-none"
                 >
                   <span className="bg-[#C9E800] text-[#151A00] text-[9px] font-black px-2 py-0.5 rounded-[4px] uppercase tracking-wider inline-block mb-1.5">
-                    FREEREP
+                    {freeRep.badge}
                   </span>
                   <h3 className="font-display text-base sm:text-lg font-black text-white tracking-tight leading-snug">
-                    Sometimes you just want to keep going.
+                    {freeRep.title}
                   </h3>
                 </motion.div>
               </div>
@@ -135,7 +136,7 @@ export default function VideoShowcase() {
                     src="/video/repdaily-video-actor-a-session-over-3.mp4"
                     type="video/mp4"
                   />
-                  Your browser does not support the video tag.
+                  {content.videoShowcase.unsupported}
                 </video>
                 <div className="absolute inset-0 bg-[#C9E800]/25 mix-blend-multiply pointer-events-none z-10 rounded-[4px]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#151A00]/85 via-[#151A00]/20 to-transparent z-20 pointer-events-none" />
@@ -147,13 +148,13 @@ export default function VideoShowcase() {
                   className="absolute bottom-4 left-4 right-4 z-30 pointer-events-none"
                 >
                   <span className="bg-[#C9E800] text-[#151A00] text-[9px] font-black px-2 py-0.5 rounded-[4px] uppercase tracking-wider inline-block mb-1.5">
-                    SPEED TEST
+                    {speed.badge}
                   </span>
                   <h3 className="font-display text-base sm:text-lg font-black text-white tracking-tight leading-snug block">
-                    EXPLOSIVE 20
+                    {speed.title}
                   </h3>
                   <p className="font-sans text-xs font-semibold text-[#F8FFE6]/80 block mt-0.5">
-                    Beat the clock.
+                    {speed.body}
                   </p>
                 </motion.div>
               </div>

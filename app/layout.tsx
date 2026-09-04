@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Unbounded, Albert_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { content } from "@/config/content";
 import "./globals.css";
 
 const unbounded = Unbounded({
@@ -23,30 +25,27 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "RepDaily — Push-Ups. Done Daily.",
-    template: "%s — RepDaily",
+    default: content.meta.title.default,
+    template: content.meta.title.template,
   },
-  description:
-    "AI-powered, camera-based push-up tracking tuned to your strength. No manual logs, just daily output.",
+  description: content.meta.description,
   icons: {
     icon: "/icon.png",
     shortcut: "/icon.png",
     apple: "/icon.png",
   },
   openGraph: {
-    title: "RepDaily — Push-Ups. Done Daily.",
-    description:
-      "AI-powered, camera-based push-up tracking tuned to your strength.",
+    title: content.meta.openGraph.title,
+    description: content.meta.openGraph.description,
     url: siteUrl,
-    siteName: "RepDaily",
+    siteName: content.meta.openGraph.siteName,
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "RepDaily — Push-Ups. Done Daily.",
-    description:
-      "AI-powered, camera-based push-up tracking tuned to your strength.",
+    title: content.meta.twitter.title,
+    description: content.meta.twitter.description,
   },
 };
 
@@ -59,6 +58,7 @@ export default function RootLayout({
     <html lang="en" className={`${unbounded.variable} ${albertSans.variable}`}>
       <body className="font-sans antialiased text-[#151A00] bg-[#C9E800]">
         {children}
+        <Analytics />
       </body>
     </html>
   );

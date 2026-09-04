@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import Footer from "@/components/Footer";
+import { content } from "@/config/content";
 
 type SubPageLayoutProps = {
   children: React.ReactNode;
@@ -29,7 +30,7 @@ export default function SubPageLayout({ children }: SubPageLayoutProps) {
               className="inline-flex items-center gap-1.5 rounded-[4px] bg-[#151A00] px-3 py-2 text-[10px] font-extrabold uppercase tracking-wider text-[#C9E800] transition-opacity hover:opacity-80 sm:gap-2 sm:px-4 sm:text-xs"
             >
               <ArrowLeft size={14} strokeWidth={2.5} aria-hidden />
-              Back to Homepage
+              {content.chrome.backToHomepage}
             </Link>
           </div>
         </div>

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
+import { content } from "@/config/content";
 
 type AnimatedCTAProps = {
   href: string;
@@ -17,7 +18,7 @@ const perimeterLoop = {
 
 export default function AnimatedCTA({
   href,
-  text = "Begin today",
+  text = content.navbar.cta,
   onClick,
   className = "",
 }: AnimatedCTAProps) {

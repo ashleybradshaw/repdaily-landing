@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Mail } from "lucide-react";
 import SubPageLayout from "@/components/SubPageLayout";
+import { content } from "@/config/content";
 
 export const metadata: Metadata = {
-  title: "Support & Account Deletion",
-  description:
-    "Get help with RepDaily or request account and data deletion. Email tech@todo.engineering.",
+  title: content.meta.pages.support.title,
+  description: content.meta.pages.support.description,
 };
 
 export default function SupportPage() {

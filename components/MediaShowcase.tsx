@@ -1,24 +1,18 @@
 import Image from "next/image";
-
-const GRID_PHOTOS = [
-  { src: "/assets/grid-photos/photo-1.webp", alt: "Athlete training on the floor" },
-  { src: "/assets/grid-photos/photo-2.webp", alt: "Push-up session in progress" },
-  { src: "/assets/grid-photos/photo-3.webp", alt: "RepDaily training environment" },
-  { src: "/assets/grid-photos/photo-4.webp", alt: "Focused push-up form" },
-  { src: "/assets/grid-photos/photo-5.webp", alt: "Daily training moment" },
-  { src: "/assets/grid-photos/photo-6.webp", alt: "Athletes showing up to train" },
-] as const;
+import { content } from "@/config/content";
 
 export default function MediaShowcase() {
+  const { mediaShowcase } = content;
+
   return (
     <section className="w-full bg-[#C9E800] pb-16">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12">
         <p className="tracking-[0.2em] font-extrabold text-xs text-[#151A00] mb-6 text-center">
-          TRACK EVERY REP AUTOMATICALLY.
+          {mediaShowcase.eyebrow}
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-6 gap-3 max-w-[1280px] mx-auto">
-          {GRID_PHOTOS.map((photo) => (
+          {mediaShowcase.photos.map((photo) => (
             <Image
               key={photo.src}
               src={photo.src}
@@ -45,11 +39,10 @@ export default function MediaShowcase() {
           />
           <div className="relative z-10 flex min-h-[22rem] flex-col items-center justify-center px-6 py-16 text-center sm:min-h-[28rem]">
             <h2 className="text-4xl md:text-6xl font-black text-[#C9E800]">
-              SHOW UP. PUSH UP.
+              {mediaShowcase.bannerTitle}
             </h2>
             <p className="text-xs md:text-sm tracking-wider font-extrabold text-white mt-2 max-w-3xl">
-              SOMETIMES, YOU JUST WANT TO KEEP GOING. REPDAILY TURNS RAW EFFORT
-              INTO TRACKED PROGRESS.
+              {mediaShowcase.bannerBody}
             </p>
           </div>
         </div>

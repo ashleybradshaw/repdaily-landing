@@ -1,29 +1,9 @@
 import { HelpCircle } from "lucide-react";
-
-const QUESTIONS = [
-  {
-    title: "Is RepDaily free?",
-    answer: "YES.",
-    body: "Free includes open FreeRep sessions, camera auto-counting, and full PowerPath 10K lifetime tracking. Upgrading to Pro unlocks PushPass 24 stages and UltraTasks.",
-  },
-  {
-    title: "Does RepDaily record or store video?",
-    answer: "NO.",
-    body: "All computer vision rep tracking happens on-device in real time. Video frames are processed instantly and never saved, stored, or uploaded.",
-  },
-  {
-    title: "Do I need special equipment?",
-    answer: "NO.",
-    body: "All you need is your body and your smartphone placed on the floor facing you.",
-  },
-  {
-    title: "Can beginners use RepDaily?",
-    answer: "ABSOLUTELY.",
-    body: "Everyone starts at zero. FreeRep lets you move at your own pace, while PushPass 24 starts at beginner-friendly rep ranges (Newbie Stage 1).",
-  },
-];
+import { content } from "@/config/content";
 
 export default function FAQ() {
+  const { faq } = content;
+
   return (
     <section id="support" className="w-full bg-[#F8FFE6] py-24">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12">
@@ -35,15 +15,15 @@ export default function FAQ() {
             aria-hidden
           />
           <h2 className="font-display text-4xl md:text-5xl font-black text-[#151A00] text-center">
-            FAQ
+            {faq.title}
           </h2>
           <p className="font-sans text-sm md:text-base font-extrabold text-[#151A00]/70 text-center mt-2">
-            Any issue - email us.
+            {faq.subtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[1000px] mx-auto mt-10">
-          {QUESTIONS.map((item) => (
+          {faq.items.map((item) => (
             <article
               key={item.title}
               className="bg-[#F8FFE6] p-8 rounded-3xl border border-[#151A00]/10"

@@ -8,34 +8,26 @@ import {
   useAnimatedIcon,
   type AnimatedIcon,
 } from "@/components/icons/AnimateIcons";
+import { content } from "@/config/content";
 
-const STEPS: {
-  icon: AnimatedIcon;
-  title: string;
-  body: string;
-}[] = [
-  {
-    icon: CameraIcon,
-    title: "Set your phone down.",
-    body: "Place your phone on the floor with the front camera facing up. Quick 30-second range check gets you ready.",
-  },
-  {
-    icon: CalendarHeartIcon,
-    title: "Start a session.",
-    body: "Choose open FreeRep, structured PushPass 24 stages, or speed-attack UltraTasks. Train your way.",
-  },
-  {
-    icon: ScanLineIcon,
-    title: "We track the rest.",
-    body: "Real-time computer vision counts every full-extension rep automatically. Nothing recorded, nothing uploaded.",
-  },
-];
+const STEP_ICONS: Record<
+  (typeof content.howItWorks.steps)[number]["icon"],
+  AnimatedIcon
+> = {
+  camera: CameraIcon,
+  calendar: CalendarHeartIcon,
+  scan: ScanLineIcon,
+};
 
 function StepCard({
   icon: Icon,
   title,
   body,
-}: (typeof STEPS)[number]) {
+}: {
+  icon: AnimatedIcon;
+  title: string;
+  body: string;
+}) {
   const { ref, onMouseEnter, onMouseLeave } = useAnimatedIcon();
 
   return (
@@ -50,6 +42,8 @@ function StepCard({
 }
 
 export default function HowItWorks() {
+  const { howItWorks } = content;
+
   return (
     <section id="how-it-works" className="w-full bg-[#C9E800] py-20">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12">
@@ -63,15 +57,20 @@ export default function HowItWorks() {
         />
 
         <p className="text-xs font-extrabold tracking-[0.2em] text-[#151A00] text-center">
-          HOW REPDAILY WORKS.
+          {howItWorks.eyebrow}
         </p>
         <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#151A00] text-center mt-1">
-          SMALL SETUP. BIG CLARITY.
+          {howItWorks.title}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1100px] mx-auto mt-12">
-          {STEPS.map((step) => (
-            <StepCard key={step.title} {...step} />
+          {howItWorks.steps.map((step) => (
+            <StepCard
+              key={step.title}
+              icon={STEP_ICONS[step.icon]}
+              title={step.title}
+              body={step.body}
+            />
           ))}
         </div>
       </div>

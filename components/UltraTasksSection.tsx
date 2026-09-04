@@ -8,45 +8,29 @@ import {
   useAnimatedIcon,
   type AnimatedIcon,
 } from "@/components/icons/AnimateIcons";
+import { content } from "@/config/content";
 
-const TASKS: {
-  icon: AnimatedIcon;
-  title: string;
-  subhead: string;
-  body: string;
-}[] = [
-  {
-    icon: WaypointsIcon,
-    title: "POWERPATH 10K",
-    subhead: "The 10,000 rep lifetime milestone.",
-    body: "Pure cumulative graft. No daily minimums and no penalties for rest. Bank reps at your own pace from Couch Potato to Absolute Unit.",
-  },
-  {
-    icon: ClockArrowUpIcon,
-    title: "EXPLOSIVE 20",
-    subhead: "Beat the clock.",
-    body: "20 clean push-ups as fast as you can. Computer vision validates every extension as you race to unlock Gold, Silver, and Bronze medals.",
-  },
-  {
-    icon: BoxesIcon,
-    title: "MAX PUSHUPS",
-    subhead: "1 Minute, One Session.",
-    body: "60 seconds of max effort. Lock in as many reps as possible before time runs out to claim high-volume badges.",
-  },
-  {
-    icon: SparklesIcon,
-    title: "TROPHY CABINET",
-    subhead: "Earned, never given.",
-    body: "Collect 17 unique achievement badges marking real performance milestones—from First Blood (Rep #1) to elite territory.",
-  },
-];
+const TASK_ICONS: Record<
+  (typeof content.ultraTasks.items)[number]["icon"],
+  AnimatedIcon
+> = {
+  waypoints: WaypointsIcon,
+  clock: ClockArrowUpIcon,
+  boxes: BoxesIcon,
+  sparkles: SparklesIcon,
+};
 
 function TaskCard({
   icon: Icon,
   title,
   subhead,
   body,
-}: (typeof TASKS)[number]) {
+}: {
+  icon: AnimatedIcon;
+  title: string;
+  subhead: string;
+  body: string;
+}) {
   const { ref, onMouseEnter, onMouseLeave } = useAnimatedIcon();
 
   return (
@@ -71,21 +55,29 @@ function TaskCard({
 }
 
 export default function UltraTasksSection() {
+  const { ultraTasks } = content;
+
   return (
     <section id="ultra-tasks" className="w-full bg-[#F8FFE6] py-24">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12">
         <div className="flex flex-col items-center text-center">
           <h2 className="font-display text-4xl md:text-5xl font-black text-[#151A00] text-center">
-            Ultra. Tasks.
+            {ultraTasks.title}
           </h2>
           <p className="font-sans text-sm md:text-base font-extrabold text-[#151A00]/70 text-center mt-2">
-            Long-term challenges designed to reward consistency and peak speed.
+            {ultraTasks.subtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1280px] mx-auto mt-12">
-          {TASKS.map((task) => (
-            <TaskCard key={task.title} {...task} />
+          {ultraTasks.items.map((task) => (
+            <TaskCard
+              key={task.title}
+              icon={TASK_ICONS[task.icon]}
+              title={task.title}
+              subhead={task.subhead}
+              body={task.body}
+            />
           ))}
         </div>
       </div>

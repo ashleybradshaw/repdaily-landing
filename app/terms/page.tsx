@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import SubPageLayout from "@/components/SubPageLayout";
+import { content } from "@/config/content";
 
 export const metadata: Metadata = {
-  title: "Terms of Use",
-  description:
-    "Terms of Use for RepDaily 1.5 — the camera-based push-up training app from TODO: Engineering.",
+  title: content.meta.pages.terms.title,
+  description: content.meta.pages.terms.description,
 };
 
 export default function TermsPage() {
