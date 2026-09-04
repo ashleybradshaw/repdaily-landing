@@ -3,12 +3,14 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import AnimatedCTA from "@/components/AnimatedCTA";
 import { content } from "@/config/content";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
   const { navbar } = content;
 
   return (
@@ -16,7 +18,17 @@ export default function Navbar() {
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
         
         {/* Left: App Icon Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link
+          href="/"
+          aria-label={navbar.logoAlt}
+          className="flex items-center gap-2 group"
+          onClick={(event) => {
+            if (pathname === "/") {
+              event.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
+        >
           <div className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-[4px] md:h-10 md:w-10">
             <Image
               src="/assets/logo-icon-repdaily.svg"

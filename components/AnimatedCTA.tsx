@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { LazyMotion, useReducedMotion } from "framer-motion";
 import * as m from "framer-motion/m";
 import { content } from "@/config/content";
@@ -26,6 +27,7 @@ export default function AnimatedCTA({
   onClick,
   className = "",
 }: AnimatedCTAProps) {
+  const pathname = usePathname();
   const reduceMotion = useReducedMotion();
   const isExternal = href.startsWith("http");
 
@@ -33,7 +35,13 @@ export default function AnimatedCTA({
     <LazyMotion features={loadDomAnimation} strict>
       <Link
         href={href}
-        onClick={onClick}
+        onClick={(event) => {
+          if (href === "/" && pathname === "/") {
+            event.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
+          onClick?.();
+        }}
         target={isExternal ? "_blank" : undefined}
         rel={isExternal ? "noopener noreferrer" : undefined}
         className={`group relative inline-flex overflow-hidden rounded-[10px] bg-[#151A00] shadow-[0_15px_30px_-8px_rgba(21,26,0,0.5)] transition-all duration-300 hover:shadow-[0_20px_40px_-5px_rgba(21,26,0,0.7)] active:scale-95 ${className}`}
