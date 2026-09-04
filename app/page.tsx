@@ -1,16 +1,16 @@
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MediaShowcase from "@/components/MediaShowcase";
 import Pricing from "@/components/Pricing";
-import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-import {
-  FeaturesLazy,
-  HowItWorksLazy,
-  RoadmapLazy,
-  UltraTasksSectionLazy,
-  VideoShowcaseLazy,
-} from "@/components/LazyBelowFold";
+
+const HowItWorks = dynamic(() => import("@/components/HowItWorks"));
+const Features = dynamic(() => import("@/components/Features"));
+const VideoShowcase = dynamic(() => import("@/components/VideoShowcase"));
+const UltraTasksSection = dynamic(() => import("@/components/UltraTasksSection"));
+const Roadmap = dynamic(() => import("@/components/Roadmap"));
+const FAQ = dynamic(() => import("@/components/FAQ"));
 
 export default function Home() {
   return (
@@ -20,16 +20,16 @@ export default function Home() {
       
       {/* Lime Top Canvas */}
       <Hero />
-      <HowItWorksLazy />
+      <HowItWorks />
       <MediaShowcase />
 
       {/* Off-White Bottom Canvas */}
       <div className="bg-[#F8FFE6]">
-        <FeaturesLazy />
-        <VideoShowcaseLazy />
-        <UltraTasksSectionLazy />
+        <Features />
+        <VideoShowcase />
+        <UltraTasksSection />
         <Pricing />
-        <RoadmapLazy />
+        <Roadmap />
         <FAQ />
         <Footer />
       </div>

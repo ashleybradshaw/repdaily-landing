@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import confetti from "canvas-confetti";
-import { useInView } from "framer-motion";
 import { Layers, Rocket, Trophy, Users, type LucideIcon } from "lucide-react";
 import { content } from "@/config/content";
 
@@ -58,8 +57,26 @@ function StatusPill({ label }: { label: "LIVE" | "READY" }) {
 
 export default function Roadmap() {
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.35 });
+  const [isInView, setIsInView] = useState(false);
   const { roadmap } = content;
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!isInView || hasCelebratedThisSession) return;
