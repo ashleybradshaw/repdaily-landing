@@ -12,16 +12,6 @@
   --color-accent-blue: #3B4FFF;
   --font-sans: var(--font-albert-sans), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-unbounded), ui-sans-serif, system-ui, sans-serif;
-  --animate-border-spin: border-spin 2.8s linear infinite;
-}
-
-@keyframes border-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 html {
@@ -39,12 +29,6 @@ body {
   h1,
   h2 {
     font-family: var(--font-display);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-border-spin {
-    animation: none;
   }
 }
 
