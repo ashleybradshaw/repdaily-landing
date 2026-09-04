@@ -53,7 +53,7 @@ export default function Navbar() {
 
         {/* Right Smart CTA Button */}
         <div className="hidden md:flex items-center">
-          <AnimatedCTA href="#download" text="Begin today" />
+          <AnimatedCTA href="/" text="Begin today" />
         </div>
 
         {/* Mobile Hamburger Toggle */}
@@ -83,7 +83,7 @@ export default function Navbar() {
           ))}
           <div className="w-full flex items-center justify-center text-center mx-auto mt-6">
             <AnimatedCTA
-              href="#download"
+              href="/"
               text="Begin today"
               onClick={() => setMobileMenuOpen(false)}
             />
