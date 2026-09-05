@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Unbounded, Albert_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { preload } from "react-dom";
 import { content } from "@/config/content";
 import DeferredMeTalk from "@/components/DeferredMeTalk";
@@ -123,6 +124,7 @@ export default function RootLayout({
         {children}
         <DeferredMeTalk />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
