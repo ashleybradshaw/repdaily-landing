@@ -32,9 +32,12 @@ export const metadata: Metadata = {
   },
   description: content.meta.description,
   icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
-    apple: "/icon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/icon.png", type: "image/png", sizes: "64x64" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
   },
   openGraph: {
     title: content.meta.openGraph.title,
@@ -49,6 +52,44 @@ export const metadata: Metadata = {
     title: content.meta.twitter.title,
     description: content.meta.twitter.description,
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://repdaily.app/#application",
+      name: "RepDaily",
+      applicationCategory: "HealthApplication",
+      operatingSystem: "iOS, Android",
+      description:
+        "RepDaily is an AI-powered, camera-based push-up tracking app that automatically counts reps, tracks form, and builds daily consistency.",
+      url: "https://repdaily.app",
+      downloadUrl: "https://apps.apple.com/gb/app/repdaily/id6760964655",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+      author: {
+        "@id": "https://repdaily.app/#organization",
+      },
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://repdaily.app/#organization",
+      name: "RepDaily",
+      url: "https://repdaily.app",
+      logo: "https://repdaily.app/icon.png",
+      sameAs: [
+        "https://apps.apple.com/gb/app/repdaily/id6760964655",
+        "https://play.google.com/store/apps/details?id=engineering.todo.repcam",
+        "https://instagram.com/repdaily.app",
+        "https://www.ashleybradshaw.co.uk/works/repdaily",
+      ],
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -75,6 +116,10 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased text-[#151A00] bg-[#C9E800]">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
         <DeferredMeTalk />
         <Analytics />
