@@ -1,21 +1,21 @@
 export const content = {
   meta: {
     title: {
-      default: "RepDaily — Push-Ups. Done Daily.",
-      template: "%s — RepDaily",
+      default: "RepDaily: The Push-Up Counter App. Push-Ups. Done Daily.",
+      template: "%s | RepDaily",
     },
     description:
-      "AI-powered, camera-based push-up tracking tuned to your strength. No manual logs, just daily output.",
+      "Put your phone down and push. RepDaily counts every clean rep, tracks your streak and keeps you coming back. Free on iPhone and Android.",
     openGraph: {
-      title: "RepDaily — Push-Ups. Done Daily.",
+      title: "RepDaily: The Push-Up Counter App. Push-Ups. Done Daily.",
       description:
-        "AI-powered, camera-based push-up tracking tuned to your strength.",
+        "Put your phone down and push. RepDaily counts every clean rep and keeps you coming back tomorrow.",
       siteName: "RepDaily",
     },
     twitter: {
-      title: "RepDaily — Push-Ups. Done Daily.",
+      title: "RepDaily: The Push-Up Counter App. Push-Ups. Done Daily.",
       description:
-        "AI-powered, camera-based push-up tracking tuned to your strength.",
+        "Put your phone down and push. RepDaily counts every clean rep and keeps you coming back tomorrow.",
     },
     pages: {
       support: {
@@ -26,12 +26,12 @@ export const content = {
       terms: {
         title: "Terms of Use",
         description:
-          "Terms of Use for RepDaily 1.5 — the camera-based push-up training app from TODO: Engineering.",
+          "Terms of Use for RepDaily 1.5, the camera based push-up training app from //TODO Engineering.",
       },
       privacy: {
         title: "Privacy Policy",
         description:
-          "How RepDaily collects, uses, and protects your data. Camera tracking stays on-device. Video is never stored or uploaded.",
+          "How RepDaily collects, uses and protects your data. Camera tracking stays on your device. Video is never stored or uploaded.",
       },
     },
   },
