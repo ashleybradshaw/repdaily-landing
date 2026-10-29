@@ -21,7 +21,7 @@ export default function TermsPage() {
       </p>
       <p className="mt-6 text-sm font-medium leading-relaxed text-[#151A00]/80 md:text-base">
         These Terms of Use govern access to RepDaily, including the mobile app,
-        this website, and related services operated by TODO: Engineering. By
+        this website, and related services operated by //TODO Engineering. By
         downloading, creating an account, or using RepDaily, you agree to these
         terms.
       </p>
@@ -97,8 +97,8 @@ export default function TermsPage() {
         </h2>
         <p className="mt-3 text-sm font-medium leading-relaxed text-[#151A00]/80 md:text-base">
           RepDaily, the wordmark, the lime identity, and the app software are
-          owned by TODO: Engineering. You get a limited, non-exclusive,
-          non-transferable license to use the app for personal training. You do
+          owned by //TODO Engineering. You get a limited, non-exclusive,
+          non-transferable licence to use the app for personal training. You do
           not get any right to copy, resell, or redistribute the product.
         </p>
       </section>
@@ -122,7 +122,7 @@ export default function TermsPage() {
           8. Limitation of liability
         </h2>
         <p className="mt-3 text-sm font-medium leading-relaxed text-[#151A00]/80 md:text-base">
-          To the maximum extent allowed by law, TODO: Engineering and its
+          To the maximum extent allowed by law, //TODO Engineering and its
           operators are not liable for indirect, incidental, special,
           consequential, or punitive damages, or for lost training data, lost
           profits, or personal injury arising from use of the app. Our total

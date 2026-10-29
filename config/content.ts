@@ -38,13 +38,13 @@ export const content = {
 
   navbar: {
     logoAlt: "RepDaily Icon",
-    cta: "Begin today",
+    cta: "Get the app",
     ctaHref: "/",
     menuToggle: "Toggle menu",
     links: [
       { name: "HOW IT WORKS", href: "#how-it-works" },
       { name: "FEATURES", href: "#features" },
-      { name: "ULTRA TASKS", href: "#ultra-tasks" },
+      { name: "ULTRATASKS", href: "#ultra-tasks" },
       { name: "PLANS", href: "#plans" },
       { name: "ROADMAP", href: "#roadmap" },
       {
@@ -60,10 +60,10 @@ export const content = {
     headline: "Push-Ups. Done Daily.",
     pillLabel: "NEW",
     pillText: "Meet RepDaily 1.5 • PUBLIC BETA",
-    kicker: "SMARTER PUSH-UP TRAINING.",
+    kicker: "YOUR PHONE KEEPS COUNT.",
     body: [
-      "Set your phone down, hit the deck, and let computer vision track every clean rep. No manual logs, no broken counters, just pure daily output tuned to your strength.",
-      "Whether you're dropping in for a quick 10-rep streak or taking on structured PushPass 24 stages, RepDaily keeps you consistent without the friction.",
+      "Set your phone down, hit the deck and your phone counts every clean rep. No manual logs, no tapping a sweaty screen. Daily push-ups, tuned to your strength.",
+      "Whether it's a quick 10 before work or the structured PushPass 24 stages, RepDaily keeps you coming back tomorrow without the friction.",
     ],
     playStore: {
       href: "https://play.google.com/store/apps/details?id=engineering.todo.repcam",
@@ -82,22 +82,22 @@ export const content = {
 
   howItWorks: {
     eyebrow: "HOW REPDAILY WORKS.",
-    title: "SMALL SETUP. BIG CLARITY.",
+    title: "PHONE DOWN. PUSH UP. DONE.",
     steps: [
       {
         icon: "camera" as const,
         title: "Set your phone down.",
-        body: "Place your phone on the floor with the front camera facing up. Quick 30-second range check gets you ready.",
+        body: "Place your phone on the floor with the front camera facing up. Train somewhere bright so it sees every rep.",
       },
       {
         icon: "calendar" as const,
         title: "Start a session.",
-        body: "Choose open FreeRep, structured PushPass 24 stages, or speed-attack UltraTasks. Train your way.",
+        body: "Go free with FreeRep, follow the PushPass 24 stages or race the clock in UltraTasks. Train your way.",
       },
       {
         icon: "scan" as const,
         title: "We track the rest.",
-        body: "Real-time computer vision counts every full-extension rep automatically. Nothing recorded, nothing uploaded.",
+        body: "Your phone counts every full rep as you go, right on the device. Nothing recorded, nothing uploaded.",
       },
     ],
   },
@@ -106,7 +106,7 @@ export const content = {
     eyebrow: "TRACK EVERY REP AUTOMATICALLY.",
     bannerTitle: "SHOW UP. PUSH UP.",
     bannerBody:
-      "SOMETIMES, YOU JUST WANT TO KEEP GOING. REPDAILY TURNS RAW EFFORT INTO TRACKED PROGRESS.",
+      "SOME DAYS YOU WANT TO KEEP GOING. REPDAILY TURNS RAW EFFORT INTO PROGRESS YOU CAN SEE.",
     photos: [
       {
         src: "/assets/grid-photos/photo-1.webp",
@@ -137,37 +137,37 @@ export const content = {
         icon: "smartphone" as const,
         title: "Automatic Rep Counting",
         subhead: "Never lose count again.",
-        body: "On-device computer vision tracks your movement depth and validates clean reps automatically so you can focus on form and effort.",
+        body: "Your phone tracks your depth and only counts clean reps, so you can focus on form and effort. It all stays on your device.",
       },
       {
         icon: "sliders" as const,
         title: "FreeRep Training (Free & Pro)",
         subhead: "Train anytime, your way.",
-        body: "Unstructured open sessions for quick daily volume. Drop down, push until you stop, and bank every rep into your lifetime total.",
+        body: "Open sessions with no plan, for quick daily volume. Drop down, push until you stop and bank every rep into your lifetime total.",
       },
       {
         icon: "audio" as const,
         title: "PushPass 24 Progression (Pro)",
         subhead: "Automated stage workouts.",
-        body: "24 adaptive training stages designed to scale your output. Hitting target sets unlocks Rep Points (RP) to rank up automatically.",
+        body: "24 adaptive training stages that grow with your strength. Hit your target sets to earn Rep Points (RP) and rank up as you go.",
       },
       {
         icon: "chart" as const,
         title: "Streaks & Consistency",
         subhead: "Build habits that stick.",
-        body: "Interactive weekly calendar strips track active days, rest days, and momentum. Focus on showing up every single day.",
+        body: "Weekly calendar strips track your active days, rest days and momentum. Rest counts too. Showing up is what matters.",
       },
       {
         icon: "bookmark" as const,
         title: "PowerPath 10K & Achievements",
         subhead: "Every single rep counts.",
-        body: "All reps across every mode feed into your 10,000-rep lifetime milestone, unlocking 17 custom achievement badges as you progress.",
+        body: "Every rep from every mode goes in the bank towards 10,000 lifetime reps, earning 17 custom achievement badges as you progress.",
       },
       {
         icon: "zap" as const,
         title: "UltraTasks Arena (Pro)",
-        subhead: "High-stakes time & volume tests.",
-        body: "Test your peak output in Explosive 20 (sub-45s speed attack) or Max Load (60-second rep assault) to collect challenge medals.",
+        subhead: "Big tests of speed & volume.",
+        body: "Test your best in Explosive 20 (20 reps against the clock) or Max Push-Ups (60 seconds, max reps) to collect challenge medals.",
       },
     ],
   },
@@ -177,12 +177,12 @@ export const content = {
     cards: [
       {
         badge: "ULTRATASKS",
-        title: "Take on the PowerPush 10K.",
-        body: "10,000 reps. Form depth calibration and automatic rep counting in full effect.",
+        title: "Take on the PowerPath 10K.",
+        body: "10,000 reps. Every one counted automatically and every one checked for depth.",
       },
       {
         badge: "FREEREP",
-        title: "Sometimes you just want to keep going.",
+        title: "Sometimes you want to keep on going.",
       },
       {
         badge: "SPEED TEST",
@@ -195,31 +195,31 @@ export const content = {
   ultraTasks: {
     title: "Ultra. Tasks.",
     subtitle:
-      "Long-term challenges designed to reward consistency and peak speed.",
+      "Lasting challenges built to reward consistency and peak speed.",
     items: [
       {
         icon: "waypoints" as const,
         title: "POWERPATH 10K",
         subhead: "The 10,000 rep lifetime milestone.",
-        body: "Pure cumulative graft. No daily minimums and no penalties for rest. Bank reps at your own pace from Couch Potato to Absolute Unit.",
+        body: "Honest cumulative graft. No daily minimums and no penalties for rest. Bank reps at your own pace from Couch Potato to Absolute Unit.",
       },
       {
         icon: "clock" as const,
         title: "EXPLOSIVE 20",
         subhead: "Beat the clock.",
-        body: "20 clean push-ups as fast as you can. Computer vision validates every extension as you race to unlock Gold, Silver, and Bronze medals.",
+        body: "20 clean push-ups as fast as you can. Your phone checks every full extension as you race to unlock Gold, Silver and Bronze medals.",
       },
       {
         icon: "boxes" as const,
-        title: "MAX PUSHUPS",
+        title: "MAX PUSH-UPS",
         subhead: "1 Minute, One Session.",
-        body: "60 seconds of max effort. Lock in as many reps as possible before time runs out to claim high-volume badges.",
+        body: "60 seconds of max effort. Lock in as many reps as possible before time runs out to claim high volume badges.",
       },
       {
         icon: "sparkles" as const,
         title: "TROPHY CABINET",
         subhead: "Earned, never given.",
-        body: "Collect 17 unique achievement badges marking real performance milestones—from First Blood (Rep #1) to elite territory.",
+        body: "Collect 17 unique achievement badges marking real performance milestones, from First Blood (Rep #1) to elite territory.",
       },
     ],
   },
@@ -227,33 +227,33 @@ export const content = {
   pricing: {
     title: "Subscription built around you.",
     subtitle: "Start free. Go further when you're ready.",
-    futureBadge: "2026 - Late",
+    futureBadge: "Late 2026",
     free: {
       title: "FREE MEMBER.",
-      tagline: "Great place to start, try the app.",
+      tagline: "A great place to start. Try the app.",
       body: "Essential push-up tracking for everyday training. No pressure, no cost, every rep counts towards your 10K PowerPath total.",
       perks: [
         "Unlimited FreeRep open sessions",
         "Full PowerPath 10K progression access",
-        "Basic 7-day streaks & workout history",
-        "Camera auto-counting & calibration",
+        "Basic weekly streaks & workout history",
+        "Automatic camera rep counting",
       ],
     },
     paid: {
-      title: "PAID MEMBER",
-      tagline: "Ready to step it up? (7 Day's Free)",
-      body: "Complete training automation. Unlock structured PushPass 24 stages, time-attack UltraTasks, and deep rep-velocity insights.",
+      title: "PRO MEMBER",
+      tagline: "Ready to step it up? (7 Days Free)",
+      body: "Complete training, done for you. Unlock structured PushPass 24 stages, timed UltraTasks and deep rep velocity insights.",
       perks: [
         { label: "All Free Plan features included" },
         {
           label: "PushPass 24",
-          detail: "Structured stage progression (Stages 1-24)",
+          detail: "Structured stage progression (Stages 1 to 24)",
         },
         {
           label: "Unlimited UltraTasks",
-          detail: "Explosive 20 & Max Load time attacks",
+          detail: "Explosive 20 & Max Push-Ups time attacks",
         },
-        { label: "Complete 17-badge trophy cabinet tracking" },
+        { label: "Track all 17 badges in the trophy cabinet" },
         { label: "Cancel anytime." },
       ],
       futurePerks: [
@@ -272,27 +272,27 @@ export const content = {
         status: "2026",
         pill: "LIVE" as const,
         title: "Public Beta Release",
-        body: "FreeRep camera auto-counting, PowerPath 10K, and core streak tracking.",
+        body: "FreeRep camera rep counting, PowerPath 10K and core streak tracking.",
       },
       {
         icon: "layers" as const,
         status: "Early Beta",
-        pill: "READY" as const,
+        pill: "LIVE" as const,
         title: "PushPass 24 & UltraTasks",
-        body: "Structured stage progression and time-attack speed challenges unlocked for Pro members.",
+        body: "Structured stage progression and timed speed challenges, live now for Pro members.",
       },
       {
         icon: "users" as const,
-        status: "2026 (Late)",
+        status: "Late 2026",
         title: "Social Challenges & Friends",
         body: "Train alongside friends, share workout summaries, and challenge custom rep targets.",
         future: true,
       },
       {
         icon: "trophy" as const,
-        status: "2026 (Late)",
+        status: "Late 2026",
         title: "Leaderboards & Deep Analytics",
-        body: "Global/local rankings, rep velocity trendlines, and advanced computer vision feedback.",
+        body: "Global and local rankings, rep velocity trendlines, and advanced computer vision feedback.",
         future: true,
       },
     ],
@@ -300,7 +300,7 @@ export const content = {
 
   faq: {
     title: "FAQ",
-    subtitle: "Any issue - email us.",
+    subtitle: "Any issue? Email us.",
     items: [
       {
         title: "Is RepDaily free?",
@@ -310,7 +310,7 @@ export const content = {
       {
         title: "Does RepDaily record or store video?",
         answer: "NO.",
-        body: "All computer vision rep tracking happens on-device in real time. Video frames are processed instantly and never saved, stored, or uploaded.",
+        body: "All rep tracking happens on your device, in real time. Video frames are processed instantly and never saved, stored or uploaded.",
       },
       {
         title: "Do I need special equipment?",
@@ -320,17 +320,17 @@ export const content = {
       {
         title: "Can beginners use RepDaily?",
         answer: "ABSOLUTELY.",
-        body: "Everyone starts at zero. FreeRep lets you move at your own pace, while PushPass 24 starts at beginner-friendly rep ranges (Newbie Stage 1).",
+        body: "Everyone starts at zero. FreeRep lets you move at your own pace, while PushPass 24 starts with easy rep ranges for beginners (Newbie Stage 1).",
       },
     ],
   },
 
   footer: {
-    copyright: "© 2026 - RepDaily Tech",
+    copyright: "© 2026 //TODO Engineering",
     logoAlt: "RepDaily",
     email: "tech@todo.engineering",
     emailHref: "mailto:tech@todo.engineering",
-    productBy: "A product by TODO: Engineering",
+    productBy: "A product by //TODO Engineering",
     productHref: "https://todo.engineering",
     links: [
       { label: "Privacy Policy", href: "/privacy" },

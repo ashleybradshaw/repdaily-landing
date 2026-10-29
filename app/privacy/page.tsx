@@ -20,7 +20,7 @@ export default function PrivacyPage() {
         LAST UPDATED AUGUST 22, 2026
       </p>
       <p className="mt-6 text-sm font-medium leading-relaxed text-[#151A00]/80 md:text-base">
-        RepDaily is a camera-based push-up training app built by TODO:
+        RepDaily is a camera based push-up training app built by //TODO
         Engineering. This policy explains what we collect, why we collect it,
         and the controls you have. Short version: rep tracking runs on your
         device. We do not record, store, or upload workout video.
@@ -31,7 +31,7 @@ export default function PrivacyPage() {
           1. Who we are
         </h2>
         <p className="mt-3 text-sm font-medium leading-relaxed text-[#151A00]/80 md:text-base">
-          RepDaily is operated by TODO: Engineering. For privacy questions,
+          RepDaily is operated by //TODO Engineering. For privacy questions,
           account requests, or data deletion, email{" "}
           <a
             href="mailto:tech@todo.engineering"
